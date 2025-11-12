@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Nita's Minimart | Filipino Groceries</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --fresh-white: #f8fff8;
+      --leaf-green: #4CAF50;
+      --light-green: #8BC34A;
+      --warm-yellow: #FFD54F;
+      --earth-orange: #FF9800;
+      --earth-brown: #795548;
+      --soft-white: #FFFFFF;
+      --light-beige: #F5F5DC;
+      --text-dark: #2E3D32;
+      --text-light: #5A6B5F;
+      --shadow: rgba(76, 175, 80, 0.1);
+      --fresh-red: #CE1126;
+      --fresh-blue: #0038A8;
+      --fresh-yellow: #FCD116;
+    }
+    
+    /* Dark mode variables */
+    [data-theme="dark"] {
+      --fresh-white: #1a2a1f;
+      --leaf-green: #6fcf72;
+      --light-green: #8BC34A;
+      --warm-yellow: #FFD54F;
+      --earth-orange: #FF9800;
+      --earth-brown: #795548;
+      --soft-white: #2d3b30;
+      --light-beige: #3a4a3d;
+      --text-dark: #e8f5e9;
+      --text-light: #b8c9bb;
+      --shadow: rgba(0, 0, 0, 0.2);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--fresh-white) 0%, var(--light-beige) 100%);
+      position: relative;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: var(--soft-white);
+      box-shadow: 0 4px 20px var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-radius: 0 0 16px 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-weight: 700;
+      color: var(--leaf-green);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--leaf-green);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .logo-subtext {
+      font-size: 0.8rem;
+      color: var(--fresh-blue);
+      margin-top: -5px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      position: relative;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--fresh-red);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: var(--fresh-red);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 80%;
+      left: 10%;
+    }
+    
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .nav-icons a {
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-icons a:hover {
+      color: var(--fresh-red);
+      transform: translateY(-2px);
+    }
+    
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      color: var(--fresh-red);
+      transform: rotate(30deg);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin: 20px 5% 40px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--fresh-blue) 0%, var(--fresh-red) 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      z-index: 1;
+    }
+
+    /* Section Styles */
+    .section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: var(--fresh-red);
+      display: inline-block;
+      position: relative;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--fresh-blue), var(--fresh-yellow));
+      border-radius: 2px;
+    }
+    
+    .content-section {
+      margin: 40px 5%;
+      padding: 40px;
+      background: var(--soft-white);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+    
+    .content-section p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+    
+    .content-section h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fresh-blue);
+      margin: 30px 0 15px;
+      font-size: 1.8rem;
+    }
+
+    /* Owner Section */
+    .owner-section {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin: 60px 5%;
+      padding: 40px;
+      background: var(--soft-white);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+    
+    .owner-image {
+      flex: 1;
+      max-width: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .owner-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .owner-info {
+      flex: 2;
+    }
+    
+    .owner-name {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fresh-red);
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    
+    .owner-title {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    
+    .owner-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+
+    /* Map Section */
+    .map-section {
+      margin: 60px 5%;
+      padding: 40px;
+      background: var(--soft-white);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px var(--shadow);
+      text-align: center;
+    }
+    
+    .map-container {
+      margin-top: 30px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 60px 5% 30px;
+      margin-top: 80px;
+    }
+    
+    /* Fix for dark mode footer text */
+    [data-theme="dark"] footer,
+    [data-theme="dark"] footer p,
+    [data-theme="dark"] footer a,
+    [data-theme="dark"] .footer-bottom {
+      color: var(--text-light) !important;
+    }
+    
+    [data-theme="dark"] footer {
+      background: var(--earth-brown);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--fresh-yellow);
+    }
+    
+    .footer-column p, .footer-column a {
+      color: #ccc;
+      line-height: 1.8;
+      margin-bottom: 10px;
+      display: block;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-column a:hover {
+      color: var(--fresh-yellow);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--fresh-red);
+      transform: translateY(-3px);
+    }
+    
+    .newsletter-form {
+      display: flex;
+      margin-top: 15px;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 25px 0 0 25px;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .newsletter-form input:focus {
+      outline: none;
+    }
+    
+    .newsletter-form button {
+      background: var(--fresh-red);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+      background: var(--fresh-blue);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--fresh-red);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1002;
+      box-shadow: 0 4px 15px rgba(206, 17, 38, 0.3);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--fresh-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .owner-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .owner-image {
+        max-width: 300px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        display: none;
+      }
+      
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .content-section, .owner-section, .map-section {
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .owner-name {
+        font-size: 1.8rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="a.png" alt="Nita's Minimart Logo">
+      </div>
+      
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      
+      <div class="nav-icons">
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <img src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/578548719_1570251737731719_7876378826827941245_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFtU_H71G-A_89mvABzHAXxf7iTiqK2fIB_uJOKorZ8gGVjNMnLGTADza-6x9TqBdwThr2RxxucyAL_sKcle_7f&_nc_ohc=CcfLdGEnn5YQ7kNvwFXQm93&_nc_oc=AdmV9GEEMLYGsyrX8UfpONIyF2TuSu2EY1U6yWaEglL7M-95l-k8It870P_MVE23qLQ&_nc_zt=23&_nc_ht=scontent.fmnl9-3.fna&oh=03_Q7cD3wFSmH93UWXoQDZccPt9IaU7dt5_F1QsAh15o9HmYoaCiA&oe=693B9B2C" alt="Fresh Groceries" class="hero-image">
+    <div class="hero-content">
+      <h1>About Nita's Minimart</h1>
+      <p>Learn more about our story and the people behind your favorite Filipino grocery store</p>
+    </div>
+  </section>
+
+  <!-- Shop Description Section -->
+  <section class="content-section">
+    <div class="section-title">
+      <h2>Our Story</h2>
+    </div>
+    
+    <p>Nita's Minimart is filled with diverse and miscellaneous products that cater even to your specific wants. This is your one-stop shop for everyday supplies and niche items.</p>
+    
+    <p>What started as a small venture has grown into a beloved community staple, providing quality products and excellent service to our valued customers. What was once Nita's Store became Nita's Minimart.</p>
+  </section>
+
+  <!-- Owner Section -->
+  <section class="owner-section">
+    <div class="owner-image">
+      <img src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.15752-9/582057519_1381612863329463_6945151994678460940_n.png?stp=dst-png_s640x640&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHBNJ4GWEk-9xBv-mQpV_iFcGV9FqE5_ihwZX0WoTn-KDatj_pDC_0a0_jNsGDNNffZ18umR7NnxZXj-JK_EFF-&_nc_ohc=MfndjN46HmEQ7kNvwH5qa5d&_nc_oc=Adk-FD6Ow1ML5tX6e4WhNgDnjGjbcUTcokg0v1pibjEWCd8pwYsg8DUbKE-tmO9HANI&_nc_ad=z-m&_nc_cid=1066&_nc_zt=23&_nc_ht=scontent.fmnl9-2.fna&oh=03_Q7cD3wG9beHQGoG4DoqcZL6ZgwWxct8cqVvVRwzPY5per-8VYQ&oe=693B87D8" alt="Llanita B. Briones - Owner of Nita's Minimart">
+    </div>
+    
+    <div class="owner-info">
+      <h2 class="owner-name">Llanita B. Briones</h2>
+      <p class="owner-title">Owner & Founder of Nita's Minimart</p>
+      <div class="owner-description">
+        <p>Known for having a bubbly and warm personality. The minimart didn't start as minimart, instead, it started right at home. When the business became more successful, they expanded their store. The name Nita is the owner's nickname, hence the name "Nita's Minimart."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="section-title">
+      <h2>Visit Us</h2>
+    </div>  
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.033414737547!2d120.99045077484587!3d14.710702474372075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b186ec108e91%3A0x86c792dbc65fd358!2sNita&#39;s%20Mini%20Mart!5e0!3m2!1sen!2sph!4v1762927982450!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Nita's Minimart</h3>
+        <p>Your trusted source for authentic Filipino groceries since 2020. We're committed to bringing you the best products from the Philippines.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="deals.html">Special Offers</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Customer Service</h3>
+        <a href="#">Shipping Information</a>
+        <a href="#">Returns & Refunds</a>
+        <a href="#">FAQ</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2020 Nita's Minimart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+  </script>
+</body>
+</html>
