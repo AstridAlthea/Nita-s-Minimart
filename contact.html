@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Nita's Minimart</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --fresh-white: #f8fff8;
+      --leaf-green: #4CAF50;
+      --light-green: #8BC34A;
+      --warm-yellow: #FFD54F;
+      --earth-orange: #FF9800;
+      --earth-brown: #795548;
+      --soft-white: #FFFFFF;
+      --light-beige: #F5F5DC;
+      --text-dark: #2E3D32;
+      --text-light: #5A6B5F;
+      --shadow: rgba(76, 175, 80, 0.1);
+      --fresh-red: #CE1126;
+      --fresh-blue: #0038A8;
+      --fresh-yellow: #FCD116;
+    }
+    
+    /* Dark mode variables */
+    [data-theme="dark"] {
+      --fresh-white: #1a2a1f;
+      --leaf-green: #6fcf72;
+      --light-green: #8BC34A;
+      --warm-yellow: #FFD54F;
+      --earth-orange: #FF9800;
+      --earth-brown: #795548;
+      --soft-white: #2d3b30;
+      --light-beige: #3a4a3d;
+      --text-dark: #e8f5e9;
+      --text-light: #b8c9bb;
+      --shadow: rgba(0, 0, 0, 0.2);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--fresh-white) 0%, var(--light-beige) 100%);
+      position: relative;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: var(--soft-white);
+      box-shadow: 0 4px 20px var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-radius: 0 0 16px 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-weight: 700;
+      color: var(--leaf-green);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--leaf-green);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .logo-subtext {
+      font-size: 0.8rem;
+      color: var(--fresh-blue);
+      margin-top: -5px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      position: relative;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--fresh-red);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: var(--fresh-red);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 80%;
+      left: 10%;
+    }
+    
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .nav-icons a {
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-icons a:hover {
+      color: var(--fresh-red);
+      transform: translateY(-2px);
+    }
+    
+    .cart-count, .wishlist-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--fresh-red);
+      color: white;
+      font-size: 0.7rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    
+    .search-bar {
+      position: relative;
+      width: 250px;
+    }
+    
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      border: 1px solid #e0e0e0;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      background: var(--fresh-white);
+      color: var(--text-dark);
+    }
+    
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--fresh-red);
+      box-shadow: 0 0 0 2px rgba(206, 17, 38, 0.2);
+    }
+    
+    .search-bar i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      color: var(--fresh-red);
+      transform: rotate(30deg);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin: 20px 5% 40px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--fresh-blue) 0%, var(--fresh-red) 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: var(--fresh-yellow);
+      color: var(--text-dark);
+      box-shadow: 0 4px 15px rgba(252, 209, 22, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: #e6b800;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(252, 209, 22, 0.4);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+    
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      display: flex;
+      gap: 40px;
+      margin: 60px 5%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .contact-form-container {
+      flex: 1.5;
+      background: var(--soft-white);
+      border-radius: 16px;
+      padding: 40px;
+      margin-left: 70px;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+    
+    .contact-info-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .contact-card {
+      background: var(--soft-white);
+      border-radius: 16px;
+      padding: 30px;
+      margin-right: 70px;
+      margin-top: 20px;
+      box-shadow: 0 5px 15px var(--shadow);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(206, 17, 38, 0.2);
+    }
+    
+    .contact-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fresh-red);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .contact-card p {
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    
+    .contact-card a {
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-card a:hover {
+      color: var(--fresh-red);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--fresh-white);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      color: var(--text-dark);
+    }
+    
+    .social-links a:hover {
+      background: var(--fresh-red);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: var(--fresh-white);
+      color: var(--text-dark);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--fresh-red);
+      box-shadow: 0 0 0 2px rgba(206, 17, 38, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    /* Map Section */
+    .map-section {
+      margin: 60px 5%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+    
+    .map-container {
+      height: 400px;
+      width: 100%;
+      background: var(--fresh-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      margin: 60px 5%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .faq-item {
+      background: var(--soft-white);
+      border-radius: 16px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px var(--shadow);
+    }
+    
+    .faq-question {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question:hover {
+      background: var(--fresh-white);
+    }
+    
+    .faq-question h3 {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-answer p {
+      padding-bottom: 20px;
+      color: var(--text-light);
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+    
+    .faq-item.active .faq-question {
+      background: var(--fresh-white);
+    }
+    
+    .faq-toggle {
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: var(--fresh-red);
+      display: inline-block;
+      position: relative;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--fresh-blue), var(--fresh-yellow));
+      border-radius: 2px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 60px 5% 30px;
+      margin-top: 80px;
+    }
+    
+    /* Fix for dark mode footer text */
+    [data-theme="dark"] footer,
+    [data-theme="dark"] footer p,
+    [data-theme="dark"] footer a,
+    [data-theme="dark"] .footer-bottom {
+      color: var(--text-light) !important;
+    }
+    
+    [data-theme="dark"] footer {
+      background: var(--earth-brown);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--fresh-yellow);
+    }
+    
+    .footer-column p, .footer-column a {
+      color: #ccc;
+      line-height: 1.8;
+      margin-bottom: 10px;
+      display: block;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-column a:hover {
+      color: var(--fresh-yellow);
+    }
+    
+    .footer-social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .footer-social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social-links a:hover {
+      background: var(--fresh-red);
+      transform: translateY(-3px);
+    }
+    
+    .newsletter-form {
+      display: flex;
+      margin-top: 15px;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 25px 0 0 25px;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .newsletter-form input:focus {
+      outline: none;
+    }
+    
+    .newsletter-form button {
+      background: var(--fresh-red);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+      background: var(--fresh-blue);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button - Fixed positioning */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--fresh-red);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1002;
+      box-shadow: 0 4px 15px rgba(206, 17, 38, 0.3);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--fresh-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Success Message */
+    .success-message {
+      background: var(--fresh-red);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .success-message.show {
+      display: flex;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .contact-section {
+        flex-direction: column;
+      }
+      
+      .contact-form-container,
+      .contact-info-container {
+        flex: 1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        display: none;
+      }
+      
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .contact-form-container {
+        padding: 25px;
+      }
+      
+      .faq-section {
+        max-width: 95%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="a.png" alt="Nita's Minimart Logo">
+      </div>
+      
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      
+      <div class="nav-icons">
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Nita's Minimart Contact" class="hero-image">
+    <div class="hero-content">
+      <h1>Get In Touch With Us</h1>
+      <p>We're here to help with any questions about our products, delivery, or your shopping experience.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="scrollToSection('contact-form-section')">
+          <i class="fas fa-envelope"></i> Send Message
+        </button>
+        <button class="btn btn-secondary" onclick="scrollToSection('faq-section')">
+          <i class="fas fa-question-circle"></i> View FAQs
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Side by Side Layout -->
+  <section class="contact-section" id="contact-form-section">
+    <!-- Contact Form -->
+    <div class="contact-form-container">
+      <div class="section-title">
+        <h2>Send Us a Message</h2>
+      </div>
+      
+      <div class="success-message" id="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Thank you! Your message has been sent successfully.</span>
+      </div>
+      
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" class="form-control" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" class="form-control" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="contact-info-container">
+      <div class="contact-card">
+        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+        <p>318 Paso de Blas Rd,</p>
+        <p>Valenzuela, Metro Manila</p>
+        <p>Philippines</p>
+      </div>
+      
+      <div class="contact-card">
+        <h3><i class="fas fa-phone-alt"></i> Call Us</h3>
+        <p><a href="tel:+639171234567">+63 915 485 6529</a></p>
+        <p>Monday to Sunday: 8:00 AM - 10:00 PM</p>
+      </div>
+      
+      <div class="contact-card">
+        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+        <p><a href="mailto:info@nitasminimart.com">nitabadongbriones@gmail.com</a></p>
+        <p>We'll respond within 24 hours</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq-section">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What are your delivery hours?</h3>
+        <i class="fas fa-chevron-down faq-toggle"></i>
+      </div>
+      <div class="faq-answer">
+        <p>We deliver from 8:00 AM to 8:00 PM, Monday to Saturday. Orders placed after 6:00 PM will be delivered the next day. We do not deliver on Sundays and public holidays.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Do you offer same-day delivery?</h3>
+        <i class="fas fa-chevron-down faq-toggle"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, we offer same-day delivery for orders placed before 12:00 PM. Orders placed after 12:00 PM will be delivered the next day.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What is your return policy?</h3>
+        <i class="fas fa-chevron-down faq-toggle"></i>
+      </div>
+      <div class="faq-answer">
+        <p>We accept returns of non-perishable items within 7 days of purchase with receipt. Perishable items can only be returned if they are spoiled or damaged upon delivery. Please contact our customer service for assistance with returns.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Do you source products locally?</h3>
+        <i class="fas fa-chevron-down faq-toggle"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, we prioritize sourcing from local Filipino producers. About 70% of our products come from within the Philippines, supporting local communities and reducing our carbon footprint.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>How can I track my order?</h3>
+        <i class="fas fa-chevron-down faq-toggle"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Once your order is shipped, you will receive a tracking number via email or SMS. You can use this tracking number on our website to monitor the status of your delivery in real-time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Nita's Minimart</h3>
+        <p>Your trusted source for authentic Filipino groceries since 2020. We're committed to bringing you the best products from the Philippines.</p>
+        <div class="footer-social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#deals">Special Offers</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Customer Service</h3>
+        <a href="#">Shipping Information</a>
+        <a href="#">Returns & Refunds</a>
+        <a href="#">FAQ</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2020 Nita's Minimart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Scroll to Section Function
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+    
+    // Back to Top Button
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close all other FAQ items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+    
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('success-message');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // In a real application, you would send the form data to a server here
+      // For this example, we'll just show the success message
+      
+      // Show success message
+      successMessage.classList.add('show');
+      
+      // Reset form
+      contactForm.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+    });
+    
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+    
+    // Initialize cart and wishlist counts
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartCount = document.querySelector('.cart-count');
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      cartCount.textContent = totalItems;
+    }
+    
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      const wishlistCount = document.querySelector('.wishlist-count');
+      wishlistCount.textContent = wishlist.length;
+    }
+    
+    // Initialize counts on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+      updateWishlistCount();
+    });
+  </script>
+</body>
+</html>
