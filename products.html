@@ -286,6 +286,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none; /* prevent underline on anchors styled as .btn */
+    }
+
+    /* Ensure no underline on hover/focus/visited states */
+    .btn:link, .btn:visited, .btn:hover, .btn:focus {
+      text-decoration: none;
+      outline: none;
     }
     
     .btn-primary {
@@ -4016,6 +4023,7 @@
   </script>
 </body>
 </html>
+
 
 
 
